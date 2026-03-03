@@ -1,0 +1,35 @@
+{
+  "name": "vendsave",
+  "version": "1.0.2",
+  "description": "Sistema de gestión de inventario y ventas para repuestos de autos",
+  "main": "electron/main.js",
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:all": "npm install && npm run install:backend && npm run install:frontend",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:frontend": "cd frontend && ng serve",
+    "dev:electron": "electron .",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"wait-on http://localhost:3000 http://localhost:4200 && npm run dev:electron\"",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && ng build --configuration production",
+    "build:electron": "electron-builder build --windows",
+    "build": "npm run build:backend && npm run build:frontend && npm run build:electron"
+  },
+  "keywords": [
+    "inventory",
+    "sales",
+    "barcode",
+    "electron",
+    "nestjs",
+    "angular"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "wait-on": "^7.2.0"
+  }
+}

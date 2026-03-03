@@ -1,0 +1,27 @@
+{
+  "appId": "com.vendsave.app",
+  "productName": "🛠️Emi Repuestos⚙️",
+  "directories": {
+    "output": "release",
+    "buildResources": "assets"
+  },
+  "files": [
+    "electron/**/*",
+    "frontend/dist/**/*"
+  ],
+  "extraResources": [
+    {
+      "from": "backend/dist",
+      "to": "backend/dist"
+    }
+  ],
+  "win": {
+    "target": ["nsis"]
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  }
+}
